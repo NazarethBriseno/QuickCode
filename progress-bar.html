@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/progressbar.css">
+    <script src="js/jquery-3.6.1.min.js"></script>
+
+</head>
+<body>
+    <div id="progress-container">
+        <svg class = "circle-svg" viewBox="0 0 200 200" fill="none">
+            <circle id="circleForProgress" cx="100" cy="100" r="95" stroke="#ddd" stroke-width="10" />
+        </svg>
+        <div id="text-container">
+            <div id="progressText">0</div>
+        </div>
+    </div>
+    <textarea id="textarea" maxlength="55"></textarea>
+
+<script>
+    const textarea = document.getElementById("textarea");
+    textarea.addEventListener("input", updateProgress);
+    function updateProgress() {
+
+        const circleForProgress = document.getElementById("circleForProgress");
+        const text = document.getElementById("progressText");
+        const maxLength = textarea.maxLength;
+        const currentLength = textarea.value.length;
+        const progress = (currentLength / maxLength) * 616;
+        const remaining = maxLength - currentLength;
+        circleForProgress.style.strokeDashoffset = 616 - progress;
+        text.innerHTML = remaining + '<br> characters left';
+    }
+
+</script>
+</body>
+</html>

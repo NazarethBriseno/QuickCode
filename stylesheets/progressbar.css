@@ -1,0 +1,54 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+#progress-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+#circleForProgress {
+    stroke-dasharray: 616;
+    stroke-dashoffset: 616;
+    transition: stroke-dashoffset 400ms linear;
+    stroke: #794caf;
+}
+
+#text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progressText {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+#textarea {
+    width: 500px;
+    height: 50px;
+    font-size: 2rem;
+}
+
+.circle-svg {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) inset;
+    background-color: #916aa5;
+    border-radius: 50%;
+}

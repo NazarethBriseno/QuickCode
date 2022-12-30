@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            scroll-snap-align: start;
+        }
+
+        .card .front,
+        .card .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .card .front {
+            background-color: #ccc;
+            transform: rotateY(0deg);
+        }
+
+        .card .back {
+            background-color: #ddd;
+            transform: rotateY(180deg);
+        }
+
+        .card.flipped .front {
+            transform: rotateY(180deg);
+        }
+
+        .card.flipped .back {
+            transform: rotateY(0deg);
+        }
+
+        .card.active {
+            display: flex;
+        }
+
+        .card:not(.active) {
+            display: none;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+<div class="carousel">
+    <div class="card">
+        <div class="front">
+            Hello
+        </div>
+        <div class="back">
+            Goodbye
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            Sup
+        </div>
+        <div class="back">
+            Bro
+        </div>
+    </div>
+    ...
+</div>
+<button class="prev">Prev</button>
+<button class="next">Next</button>
+<script src="js/jquery3.6.3.js"></script>
+<script>
+    const carousel = $('.carousel');
+    const cards = $('.card');
+    const prevButton = $('.prev');
+    const nextButton = $('.next');
+
+    let currentIndex = 0;
+
+    cards.each((index, card) => {
+        $(card).click(() => {
+            $(card).toggleClass('flipped');
+        });
+
+        if (index === currentIndex) {
+            $(card).addClass('active');
+        } else {
+            $(card).removeClass('active');
+        }
+    });
+
+    prevButton.click(() => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCards();
+    });
+
+    nextButton.click(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCards();
+    });
+
+    function updateCards() {
+        cards.each((index, card) => {
+            if (index === currentIndex) {
+                $(card).addClass('active');
+            } else {
+                $(card).removeClass('active');
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>
