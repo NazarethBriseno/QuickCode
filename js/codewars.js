@@ -38,18 +38,18 @@
 // function countSheep(arrayOfSheep) {
 //     return arrayOfSheep.filter(Boolean).length;
 // }
-
-for(let i = 0; i <= 100; i++){
-    if(i % 3 === 0 && i % 5 === 0){
-        console.log("FIZZBUZZ");
-    } else if(i % 5 === 0){
-        console.log("BUZZ");
-     } else if (i % 3 === 0){
-        console.log("FIZZ");
-    } else {
-        console.log(i);
-    }
-}
+//
+// for(let i = 0; i <= 100; i++){
+//     if(i % 3 === 0 && i % 5 === 0){
+//         console.log("FIZZBUZZ");
+//     } else if(i % 5 === 0){
+//         console.log("BUZZ");
+//      } else if (i % 3 === 0){
+//         console.log("FIZZ");
+//     } else {
+//         console.log(i);
+//     }
+// }
 
 //Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
 //Return the running sum of nums.
@@ -57,13 +57,28 @@ let numArray = [1, 2, 3, 4, 5, 6, 7, 8];
 function runningSum(nums) {
     for(let i = 1 ; i < nums.length; i++) {
         nums[i] = nums[i] + nums[i-1];
+        console.log(nums);
     }
     return nums;
 }
 
 //Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
 
-function descendingOrder(n){
-    return parseInt(String(n).split('').sort().reverse().join(''));
-}
+// function descendingOrder(n){
+//     return parseInt(String(n).split('').sort().reverse().join(''));
+// }
 
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+//     You may assume that each input would have exactly one solution, and you may not use the same element twice.
+//     You can return the answer in any order.
+
+function twoSum (nums, target){
+    for(let i =0; i < nums.length; i++){
+        for(let j =i + 1; j < nums.length; j++){
+            if (nums[i] + nums[j] === target){
+                return [i, j];
+            }
+        }
+    }
+
+}
