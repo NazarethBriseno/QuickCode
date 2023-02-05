@@ -82,3 +82,7 @@ function twoSum (nums, target){
     }
 
 }
+
+function isPalindrome(num){
+    return num.toString().split('').reverse().join('') === num.toString();
+}
