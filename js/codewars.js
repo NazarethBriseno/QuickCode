@@ -72,17 +72,22 @@ function runningSum(nums) {
 //     You may assume that each input would have exactly one solution, and you may not use the same element twice.
 //     You can return the answer in any order.
 
-function twoSum (nums, target){
-    for(let i =0; i < nums.length; i++){
-        for(let j =i + 1; j < nums.length; j++){
-            if (nums[i] + nums[j] === target){
-                return [i, j];
-            }
-        }
-    }
+// function twoSum (nums, target){
+//     for(let i =0; i < nums.length; i++){
+//         for(let j =i + 1; j < nums.length; j++){
+//             if (nums[i] + nums[j] === target){
+//                 return [i, j];
+//             }
+//         }
+//     }
+//
+// }
+//
+// function isPalindrome(num){
+//     return num.toString().split('').reverse().join('') === num.toString();
+// }
 
-}
-
-function isPalindrome(num){
-    return num.toString().split('').reverse().join('') === num.toString();
+//Remove spaces from a string
+function removeSpacesFromString(string){
+    return x.split(" ").join("");
 }
