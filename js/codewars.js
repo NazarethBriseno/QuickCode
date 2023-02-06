@@ -91,3 +91,10 @@ function runningSum(nums) {
 function removeSpacesFromString(string){
     return x.split(" ").join("");
 }
+
+//An array with a mixture of ints and String Ints, return the total added up together
+function sumMix(x){
+    return x.reduce(function(total, num){
+        return total + parseInt(num);
+    }, 0)
+}
